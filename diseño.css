@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #d6c6b2;
+    background-image: url('71977d18b5df32cb835319dc199e4950.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.botones_arriba {
+    display: flex;
+    font-family: "Pangolin", cursive;
+    gap: 80px;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: #4B3621;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 50px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.logotipo {
+    width: 10%;               
+    height: auto;
+    margin-right: 120px;     
+    margin-left: -300px;   
+}
+
+.enlace {
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.3;
+    background-color: #4B3621;
+    color: white;
+    font-weight: bolder;
+    font-size: 19px;
+    font-style: italic;
+}
+
+.principal {
+    margin: 10%;
+    padding: 20px;
+    height: 1000px;
+    width: 700px;
+}
+
+.texto_principal {
+    color: white;
+    font-family: "Pangolin", cursive;
+    background-image: linear-gradient(rgba(34, 33, 33, 0.212)),
+     url(Gemini_Generated_Image_kpojufkpojufkpoj.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+    min-height: 500px;
+}
+
+.enlace:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    max-width: 500px;
+    margin: 90px 10px;
+    line-height: 2;
+}
+
+.imagenes_cafe {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 35px;
+    margin-left: -100px;
+}
+
+.diseño {
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.diseño img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.imagenes_cafe:hover > :not(:hover) {
+    opacity: 0.3;
+}
+
+.diseño:hover {
+    transform: scale(1.1);
+}
