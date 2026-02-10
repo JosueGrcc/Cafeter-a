@@ -1,8 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
+    /* height: 100vh; */
+    /* display: flex; */
     justify-content: center;
     background-color: #d6c6b2;
     background-image: url('71977d18b5df32cb835319dc199e4950.jpg');
@@ -10,6 +10,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    min-height: 100vh;
 }
 
 .botones_arriba {
@@ -50,22 +51,29 @@ body {
 }
 
 .principal {
-    margin: 10%;
-    padding: 20px;
-    height: 1000px;
-    width: 700px;
+    /* margin: 10%; */
+    /* padding: 20px; */
+    /* height: 1000px; */
+    /* width: 700px; */
+    padding: 40px 0;
+    margin: 100px auto;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .texto_principal {
     color: white;
     font-family: "Pangolin", cursive;
     background-image: linear-gradient(rgba(34, 33, 33, 0.212)),
-     url(Gemini_Generated_Image_kpojufkpojufkpoj.png);
+    url(Gemini_Generated_Image_kpojufkpojufkpoj.png);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: color-burn;
     min-height: 500px;
+
+    width: 700px;
+    margin: auto;
 }
 
 .enlace:hover {
@@ -90,7 +98,7 @@ h2 {
     flex-direction: row;
     justify-content: space-between;
     gap: 35px;
-    margin-left: -100px;
+    /* margin-left: -100px; */
 }
 
 .diseño {
@@ -110,4 +118,59 @@ h2 {
 
 .diseño:hover {
     transform: scale(1.1);
+}
+
+/*mapa*/
+.mapa{
+    margin: 0;
+    height: 300px;
+    width: 100%;
+}
+
+/* footer*/
+.footer-horizontal {
+    width: 100%;
+    margin: 0;
+    padding: 25px 60px;
+
+    background: linear-gradient(90deg, #3b2a1d, #1f140d);
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+/* secciones */
+.footer-izq,
+.footer-der {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.footer-centro{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.footer-horizontal a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.footer-horizontal a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* texto pequeño */
+.pais {
+    font-weight: bold;
 }
