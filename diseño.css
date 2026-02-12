@@ -65,7 +65,7 @@ body {
     color: white;
     font-family: "Pangolin", cursive;
     background-image: linear-gradient(rgba(34, 33, 33, 0.212)),
-    url(Gemini_Generated_Image_kpojufkpojufkpoj.png);
+    url(resources/Gemini_Generated_Image_kpojufkpojufkpoj.png);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -97,7 +97,7 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 35px;
+    /* gap: 35px; */
     /* margin-left: -100px; */
 }
 
@@ -120,49 +120,38 @@ h2 {
     transform: scale(1.1);
 }
 
-/*mapa*/
-.mapa{
-    margin: 0;
-    height: 300px;
-    width: 100%;
-}
-
-/* footer*/
+/* ===== FOOTER 3 COLUMNAS ===== */
 .footer-horizontal {
     width: 100%;
-    margin: 0;
-    padding: 25px 60px;
+    padding: 40px 60px;
 
     background: linear-gradient(90deg, #3b2a1d, #1f140d);
     color: white;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.5fr; /* 3 columnas */
+    gap: 40px;
 
     box-sizing: border-box;
+    font-family: "Pangolin", cursive;
 }
 
-/* secciones */
+/* cada columna vertical */
 .footer-izq,
+.footer-centro,
 .footer-der {
     display: flex;
-    align-items: center;
-    gap: 25px;
-}
-.footer-centro{
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 25px;
+    flex-direction: column; /* 🔥 vertical */
+    gap: 12px;
 }
 
-
+/* links */
 .footer-horizontal a {
     color: white;
     text-decoration: none;
     font-size: 15px;
     transition: 0.3s;
+    /* margin: auto 0; */
 }
 
 .footer-horizontal a:hover {
@@ -170,7 +159,225 @@ h2 {
     opacity: 0.8;
 }
 
-/* texto pequeño */
+/* mapa */
+.mapa {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* títulos / spans */
 .pais {
     font-weight: bold;
+    font-size: 18px;
+}
+.redes{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 50px; */
+}
+.redes_container {
+    width: 50%;
+    /* justify-content: space-between; */
+}
+.redes_iconos{
+    display: flex;
+    gap: 20px;
+}
+
+.iconos {
+    width: 22px;
+    height: 22px;
+}
+
+/* carrusel */
+
+/* ================================
+   CARRUSEL
+================================ */
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* Slides container */
+.slides {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+/* Slide base */
+.slide {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    transition: 0.6s ease;
+    pointer-events: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Ocultar radios */
+.carrusel input {
+    display: none;
+}
+
+/* =================================
+   ESTADO CENTRAL (optimizado)
+================================= */
+
+#img1:checked ~ .slides .s1,
+#img2:checked ~ .slides .s2,
+#img3:checked ~ .slides .s3,
+#img4:checked ~ .slides .s4 {
+    transform: translateX(0) scale(1);
+    z-index: 3;
+    filter: blur(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =================================
+   LADO DERECHO CERCANO
+================================= */
+
+#img1:checked ~ .slides .s2,
+#img2:checked ~ .slides .s3,
+#img3:checked ~ .slides .s4,
+#img4:checked ~ .slides .s1 {
+    transform: translateX(200px) scale(0.8);
+    z-index: 2;
+    filter: blur(2px);
+    opacity: 0.7;
+}
+
+/* =================================
+   LADO DERECHO LEJANO
+================================= */
+
+#img1:checked ~ .slides .s3,
+#img2:checked ~ .slides .s4,
+#img3:checked ~ .slides .s1,
+#img4:checked ~ .slides .s2 {
+    transform: translateX(350px) scale(0.6);
+    z-index: 1;
+    filter: blur(4px);
+    opacity: 0.4;
+}
+
+/* =================================
+   LADO IZQUIERDO CERCANO
+================================= */
+
+#img1:checked ~ .slides .s4,
+#img2:checked ~ .slides .s1,
+#img3:checked ~ .slides .s2,
+#img4:checked ~ .slides .s3 {
+    transform: translateX(-200px) scale(0.8);
+    z-index: 2;
+    filter: blur(2px);
+    opacity: 0.7;
+}
+
+/* =================================
+   BOTONES INDICADORES
+================================= */
+
+.controles {
+    position: absolute;
+    bottom: -40px;
+    display: flex;
+    gap: 10px;
+}
+
+.controles label {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.controles label:hover {
+    opacity: 1;
+}
+
+/* =================================
+   FLECHAS FIJAS (FUERA DE .slide)
+================================= */
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.prev:hover,
+.next:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+.flechas {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: none;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.flechas label {
+    font-size: 30px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.flechas label:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+/* Mostrar flechas correctas según estado */
+#img1:checked ~ .f1,
+#img2:checked ~ .f2,
+#img3:checked ~ .f3,
+#img4:checked ~ .f4 {
+    display: flex;
 }
