@@ -6,17 +6,23 @@
     <link rel="stylesheet" href="diseño.css">
 </head>
 <body>
+    <input type="checkbox" id="about-toggle" hidden>
+    <audio id="bgMusic" autoplay loop>
+    <source src="resources/Ratatouille Ambient Music   PIXAR   Relax, Study, Sleep and Cook.mp3" type="audio/mpeg">
+    </audio>    
 
     <div id="menu_flotante">
         <button class="boton_inicial">☰</button>
         <nav class="opciones">
             <a href="#" class="item">Inicio</a>
-            <a href="#" class="item">Ubicación</a>
-            <a href="#" class="item">Productos</a>
+            <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="item">Ubicación</a>
+            <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488432,-105.3837222,3a,75y,90t/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgIC_zbicwAE!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FAHVAweqbOKQgvdSZtOed-r-tMQ16PcjWgYXgoRCj8umd-GELBnXgHZBndtachh1QZfkIGhiOsSyHd5OV96vKTDWFSKWZefG6IvyNylStb8_1dpmF1FKPL33nrtRQPUnfNEyoOwU3qLmC2w%3Dw195-h146-k-no!7i4080!8i3072!4m7!3m6!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!10e9!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="item">Productos</a>
         </nav>
     </div>
 
     <main class="principal">
+
+        <div class="contenedor_about">
         <section class="texto_principal">
             <h1>¡Algo delicioso se está horneando!</h1>
             <h2>Déjate envolver <br>
@@ -24,7 +30,30 @@
                  de nuestro café recién tostado hoy.</h2>
             <img src="" alt="">
         </section>
+        <div class="panel_about">
+        <h2>Nuestra Historia</h2>
+        <p>
+            Octava Café nació de una amistad que comenzó entre libros,
+            madrugadas de estudio y tazas interminables de café.
+            Edgar y Josué compartían algo más que clases:
+            compartían el sueño de crear un espacio donde las personas
+            pudieran sentirse en casa.
+            <br><br>
+            Entre risas, errores, recetas fallidas y muchas pruebas,
+            descubrieron que el café no solo despierta el cuerpo,
+            también une corazones.
+            <br><br>
+            Así nació Octava Café:
+            un rincón donde cada taza es un abrazo,
+            cada aroma cuenta una historia,
+            y cada visitante se convierte en parte de la familia.
+            <br><br>
+            Porque más que café…
+            servimos momentos. ☕🤎
+        </p>
+    </div>
 
+</div>
 <div class="carrusel">
 
     <input type="radio" name="slider" id="img1" checked>
@@ -70,44 +99,57 @@
         <div class="botones_arriba">
             <img src="resources/Gemini_Generated_Image_gcpjwjgcpjwjgcpj-removebg-preview.png" alt="logo" class="logotipo">
             <a href="#" class="enlace">Inicio</a>
-            <a href="#" class="enlace">Ubicacion</a>
-            <a href="#" class="enlace">Sobre Nosotros</a>
-            <a href="#" class="enlace">Productos</a>
-            <a href="#" class="enlace">Informacion</a>
+            <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="enlace">Ubicacion</a>
+            <label for="about-toggle" class="enlace">Sobre Nosotros</label>
+            <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488432,-105.3837222,3a,75y,90t/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgIC_zbicwAE!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FAHVAweqbOKQgvdSZtOed-r-tMQ16PcjWgYXgoRCj8umd-GELBnXgHZBndtachh1QZfkIGhiOsSyHd5OV96vKTDWFSKWZefG6IvyNylStb8_1dpmF1FKPL33nrtRQPUnfNEyoOwU3qLmC2w%3Dw195-h146-k-no!7i4080!8i3072!4m7!3m6!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!10e9!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" class="enlace" target="_blank">Productos</a>
+            <a href="#informacion" class="enlace">Informacion</a>
         </div>
-
         <div class="imagenes_cafe">
-            <div class="diseño"><img src="resources/IMG-20260115-WA0002.jpg" alt=""></div>
-            <div class="diseño"><img src="resources/IMG-20260122-WA0054.jpg" alt=""></div>
-            <div class="diseño"><img src="resources/IMG-20260204-WA0002.jpg" alt=""></div>
-            <div class="diseño"><img src="resources/IMG-20251213-WA0009.jpg" alt=""></div>
+
+    <div class="diseño">
+        <img src="resources/IMG-20260115-WA0002.jpg" alt="">
+        <div class="overlay">
+            <p>
+                Con este clima, el cuerpo pide café… y el corazón también. 🤍 <br><br>
+                En La Octava te espera ese abrazo calientito que calma el frío y reconforta el alma. <br><br>
+                Ven por el tuyo ☕
+            </p>
         </div>
-
-        <!-- <nav>
-    <h3>Contacto</h3>
-
-    <div class="contacto-item">
-        <a href="tel:+523221381733" class="informacion_contacto">
-            322-138-1733
-        </a>
-        <p>Lunes a Sábado: 7:00 am a 1:00 pm</p>
     </div>
 
-    <div class="contacto-item">
-        <a href="mailto:Octavacafe@gmail.com" class="informacion_contacto">
-            Octavacafe@gmail.com
-        </a>
+    <div class="diseño">
+        <img src="resources/IMG-20260122-WA0054.jpg" alt="">
+        <div class="overlay">
+            <p>
+                Cada taza cuenta una historia… deja que la tuya comience aquí ☕
+            </p>
+        </div>
     </div>
 
-    <h3>Síguenos en nuestras redes</h3>
-    <div class="redes-sociales">
-        <a href="https://facebook.com/tu-perfil"><img src="icono-fb.png" alt="Facebook"></a>
-        <a href="https://instagram.com/tu-perfil"><img src="icono-ig.png" alt="Instagram"></a>
+    <div class="diseño">
+        <img src="resources/IMG-20260204-WA0002.jpg" alt="">
+        <div class="overlay">
+            <p>
+                Un rincón acogedor, un café perfecto y un momento solo para ti 🤎
+            </p>
         </div>
-    </nav>  -->
+    </div>
+
+    <div class="diseño">
+        <img src="resources/IMG-20251213-WA0009.jpg" alt="">
+        <div class="overlay">
+            <p>
+                Respira profundo… huele el café recién hecho y disfruta el instante ✨
+            </p>
+        </div>
+    </div>
+
+</div>
+
+        
 </main>
 
-<footer class="footer-horizontal">
+<footer class="footer-horizontal" id="informacion">
     <div class="footer-izq">
         <h3>Horario:</h3>
             <span>Lunes a Sábado: </span>
@@ -164,6 +206,9 @@
                 menu.classList.remove('show');
             }
         });
+        document.addEventListener("click", function() {
+        document.getElementById("bgMusic").play();
+        }, { once: true });
     </script>
 </body>
 </html>
