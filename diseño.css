@@ -374,10 +374,85 @@ h2 {
     background: rgba(0,0,0,0.7);
 }
 
-/* Mostrar flechas correctas según estado */
+
 #img1:checked ~ .f1,
 #img2:checked ~ .f2,
 #img3:checked ~ .f3,
 #img4:checked ~ .f4 {
     display: flex;
+}
+
+#menu_flotante {
+    position: fixed;
+    top: 30px;
+    left: 0px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+
+#menu_flotante.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+.boton_inicial {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4B3621;
+    color: white;
+    border: 2px solid #d6c6b2;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.opciones {
+    position: relative;
+    top: 90px;
+    left: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(15px);
+}
+
+/* Efecto Hover */
+#menu_flotante:hover .opciones {
+    opacity: 1;
+    visibility: visible;
+}
+
+.item {
+    background: #fdfaf6;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #4B3621;
+    font-family: "Pangolin", cursive;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    transition: 0.2s;
+    border: 1px solid #4B3621;
+}
+
+.item:hover {
+    background-color: #4B3621;
+    color: white;
 }

@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="diseño.css">
 </head>
 <body>
+
+    <div id="menu_flotante">
+        <button class="boton_inicial">☰</button>
+        <nav class="opciones">
+            <a href="#" class="item">Inicio</a>
+            <a href="#" class="item">Ubicación</a>
+            <a href="#" class="item">Productos</a>
+        </nav>
+    </div>
+
     <main class="principal">
         <section class="texto_principal">
             <h1>¡Algo delicioso se está horneando!</h1>
@@ -144,6 +154,19 @@
     </div>
 </footer>
 
+<script>
+        window.addEventListener('scroll', function() {
+            const menu = document.getElementById('menu_flotante');
+            
+            if (window.scrollY > 120) {
+                menu.classList.add('show');
+            } else {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
 
     
 </body>
