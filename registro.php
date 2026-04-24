@@ -9,7 +9,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     $pass_encriptada = password_hash($pass, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuarios (email, password) VALUES ('$email', '$pass_encriptada')";
+    $sql = "INSERT INTO usuarios (email, contrasena) VALUES ('$email', '$pass_encriptada')";
 
     if (mysqli_query($conexion, $sql)) {
         echo "¡Registro exitoso!";
