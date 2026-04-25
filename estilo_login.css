@@ -1,91 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #FDFBF7;
+    background-color: #f4f1ea; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-
-/* =================================
-   DISEÑO DEL LADO IZQUIERDO
-================================= */
 
 .contenedor_main {
     display: flex;
-    height: 100vh;
-    width: 100%;
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .contenedor_de_imagen {
-    flex: 6;
-    background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop'); 
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    flex: 1.2;
+    background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
 .oscurecer_imagen {
-    background-color: rgba(62, 39, 35, 0.5); /* Café oscuro transparente */
-  padding: 40px;
-  text-align: center;
-  color: white;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.titulo_imagen {
-    font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  margin-bottom: 10px;
-}
-
-/* =================================
-   DISEÑO LADO DERECHO (LOGIN)
-================================= */
-
-.contenedor_login {
-    flex: 4;
-    background-color: #FDFBF7;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(62, 39, 35, 0.5);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    color: white;
     padding: 20px;
-}
-
-.capsula_login {
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 420px;
-    padding: 50px 40px;
-    border-radius: 25px; 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
     text-align: center;
 }
 
-.titulo_principal {
-    font-family: 'Playfair Display', serif;
-    color: #3E2723; 
+.titulo_imagen {
     font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
-.subtitulo {
-    color: #8D6E63;
+.subtitulo_imagen {
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.contenedor_login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.capsula_login {
+    width: 100%;
+    max-width: 350px;
+}
+
+.encabezado_login {
+    text-align: center;
     margin-bottom: 30px;
 }
 
-/* =================================
-   DISEÑO BOTONES
-================================= */
+.logo_icono {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.titulo_principal {
+    color: #3e2723;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.subtitulo {
+    color: #8d6e63;
+    font-size: 0.9rem;
+}
 
 .bloque_login {
     display: flex;
@@ -95,42 +100,40 @@ body {
 }
 
 .bloque_login label {
-    display: block;
+    font-size: 0.8rem;
     font-weight: 700;
-  font-size: 0.8rem;
-  margin-bottom: 8px;
-  color: #000; 
-  text-transform: uppercase;
+    color: #3e2723;
+    margin-bottom: -5px;
 }
-.bloque_login input {
-    width: 100%;
-    padding: 14px 20px;
-    background-color: #cec4ba; 
-    border: 1.5px solid #000;  
-    border-radius: 50px;       
+
+input {
+    padding: 12px 15px;
+    border: 1px solid #d7ccc8;
+    border-radius: 10px;
+    background-color: #fafafa;
     outline: none;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    transition: 0.3s;
 }
 
-
-.bloque_login input:focus {
-    border-color: #C67D53;
+input:focus {
+    border-color: #a1887f;
+    box-shadow: 0 0 5px rgba(161, 136, 127, 0.3);
 }
 
 .boton_login {
     width: 100%;
-  padding: 15px;
-  background-color: #C67D53; 
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3e2723;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .boton_login:hover {
-    background-color: #A05E39;
+    background-color: #5d4037;
+    transform: translateY(-2px);
 }
+

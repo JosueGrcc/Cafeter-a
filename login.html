@@ -1,41 +1,76 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilo_login.css">
-    
+    <style>
+        #mensaje-error {
+            display: none;
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ef9a9a;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
     <main class="contenedor_main">
-        <!-- Lado Derecho -->   
-        <div class="contenedor_login">
+
+        <section class="contenedor_de_imagen">
+            <div class="oscurecer_imagen">
+                <h2 class="titulo_imagen">BIENVENIDO DE NUEVO</h2>
+                <p class="subtitulo_imagen">TU TAZA FAVORITA TE ESPERA</p>
+            </div>
+        </section>
+
+        <section class="contenedor_login">
             <div class="capsula_login">
-                <h1 class="titulo_principal">Tu Café</h1>
-                <p class="subtitulo">Que bueno verte de nuevo!</p>
 
-                <form action="registro.php" method="POST">
+                <header class="encabezado_login">
+                    <div class="logo_icono">☕</div>
+                    <h1 class="titulo_principal">TU CAFE</h1>
+                    <p class="subtitulo">INGRESA TUS DATOS</p>
+                </header>
 
+                <div id="mensaje-error">
+                    <strong>¡Error!</strong> El correo o la contraseña no son válidos.
+                </div>
+
+                <form action="login.php" method="POST">
+                    
                     <div class="bloque_login">
-                        <label>Inicia Sesión</label>
+                        <label>INICIA SESIÓN</label>
                         <input type="email" name="email" placeholder="Correo Electrónico" required>
-                        
                         <input type="password" name="password" placeholder="Contraseña" required>
                     </div>
 
-                    <button type="submit" class="boton_login">Entrar</button>
+                    <button type="submit" class="boton_login">ENTRAR A MI CUENTA</button>
+                    
                 </form>
-            </div>
-        </div>
 
-        <!-- Lado Izquierdo -->   
-        <div class="contenedor_de_imagen">
-            <div class="oscurecer_imagen">
-
-                <h2 class="titulo_imagen">EL MEJOR CAFÉ</h2>
-                <p class="subtitulo_imagen">SIEMPRE CERCA DE TI</p>
+                <div class="pie_login">
+                    <p>¿Aún no tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+                </div>
             </div>
-        </div>
-     </main>
+
+        </section>
+
+    </main>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            document.getElementById('mensaje-error').style.display = 'block';
+        }
+    </script>
+    
 </body>
 </html>

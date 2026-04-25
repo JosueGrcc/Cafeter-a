@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="estilo_registro.css">
+    
+</head>
+<body>
+    <main class="contenedor_main">
+        <!-- Lado Derecho -->   
+        <div class="contenedor_login">
+            <div class="capsula_login">
+                <h1 class="titulo_principal">Tu Café</h1>
+                <p class="subtitulo">Que bueno verte de nuevo!</p>
+
+                <form action="registro.php" method="POST">
+
+                    <div class="bloque_login">
+                        <label>Registrate</label>
+                        <input type="email" name="email" placeholder="Correo Electrónico" required>
+                        
+                        <input type="password" name="password" placeholder="Contraseña" required>
+                    </div>
+
+                    <button type="submit" class="boton_login">Registrarme</button>
+                </form>
+                <div class="pie_login">
+                    <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lado Izquierdo -->   
+        <div class="contenedor_de_imagen">
+            <div class="oscurecer_imagen">
+
+                <h2 class="titulo_imagen">EL MEJOR CAFÉ</h2>
+                <p class="subtitulo_imagen">SIEMPRE CERCA DE TI</p>
+            </div>
+        </div>
+     </main>
+</body>
+</html>
