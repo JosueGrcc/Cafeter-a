@@ -14,10 +14,16 @@
                 <h1 class="titulo_principal">Tu Café</h1>
                 <p class="subtitulo">Que bueno verte de nuevo!</p>
 
+                <div id="mensaje-error" class="alerta-registro">
+                    Este correo ya está registrado. <br> Intenta con otro o inicia sesión.
+                </div>
+
                 <form action="registro.php" method="POST">
 
                     <div class="bloque_login">
                         <label>Registrate</label>
+                        <input type="text" name="nombre" placeholder="Nombre Completo" required>
+
                         <input type="email" name="email" placeholder="Correo Electrónico" required>
                         
                         <input type="password" name="password" placeholder="Contraseña" required>
@@ -40,5 +46,7 @@
             </div>
         </div>
      </main>
+
+     <script src="script_registro.js"></script>
 </body>
 </html>
