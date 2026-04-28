@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../config/conexion.php';
 
 if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['password'])) {
     
@@ -13,7 +13,7 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['password'
 
     if (mysqli_num_rows($resultado) > 0) {
         // Si el correo ya existe, mandamos un aviso al registro
-        header("Location: registro.html?error=email_existente");
+        header("Location: ../views/registro.html?error=email_existente");
         exit();
     } else {
         // Si no existe, procedemos al registro normal
@@ -21,7 +21,7 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['password'
         $sql = "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$nombre', '$email', '$pass_encriptada')";
 
         if (mysqli_query($conexion, $sql)) {
-            header("Location: login.html?registro=exitoso");
+            header("Location: ../views/login.html?registro=exitoso");
             exit();
         } else {
             echo "Error: " . mysqli_error($conexion);

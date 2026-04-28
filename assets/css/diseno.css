@@ -5,7 +5,7 @@ body {
     /* display: flex; */
     justify-content: center;
     background-color: #d6c6b2;
-    background-image: url('71977d18b5df32cb835319dc199e4950.jpg');
+    background-image: url('/Cafeter-a/assets/img/71977d18b5df32cb835319dc199e4950.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -101,8 +101,9 @@ html {
 .texto_principal {
     color: white;
     font-family: "Pangolin", cursive;
-    background-image: linear-gradient(rgba(34, 33, 33, 0.212)),
-    url(resources/Gemini_Generated_Image_kpojufkpojufkpoj.png);
+    background-image: 
+    linear-gradient(rgba(34,33,33,0.4), rgba(34,33,33,0.4)),
+    url('../img/Gemini_Generated_Image_kpojufkpojufkpoj.png');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;

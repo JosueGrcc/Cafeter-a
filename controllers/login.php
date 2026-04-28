@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include '../config/conexion.php';
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password_ingresada, $usuario['contrasena'])) {
             $_SESSION['usuario'] = $usuario['nombre'];
-            header("Location: index.php"); 
+            header("Location: ../views/index.php"); 
             exit();
         }
     }
 
-    header("Location: login.php?error=1");
+    header("Location: ../views/login.php?error=1");
     exit();
 }
 ?>

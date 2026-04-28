@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'conexion.php';
+include '../config/conexion.php';
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.html");
+    header("Location: ../views/login.html");
 }
 ?>
 
@@ -15,7 +15,7 @@ if (!isset($_SESSION['usuario'])) {
 </head>
 
 <body>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
         rel="stylesheet">
@@ -23,7 +23,7 @@ if (!isset($_SESSION['usuario'])) {
         <h2>Bienvenido, <?php echo explode(" ", $_SESSION['usuario'])[0]; ?></h2>
 
         <div class="header-right">
-            <a href="index.php" class="btn-header inicio">Inicio</a>
+            <a href="../views/index.php" class="btn-header inicio">Inicio</a>
 
             <div class="user-menu">
                 <div class="user-info">
@@ -32,8 +32,8 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
 
                 <div class="dropdown">
-                    <a href="cuenta.php">Mi cuenta</a>
-                    <a href="logout.php">Cerrar sesión</a>
+                    <a href="../controllers/cuenta.php">Mi cuenta</a>
+                    <a href="../controllers/logout.php">Cerrar sesión</a>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@ if (!isset($_SESSION['usuario'])) {
         <div class="card">
             <h3>Agregar producto</h3>
 
-            <form action="insertar.php" method="POST">
+            <form action="../controllers/insertar.php" method="POST">
                 <input type="text" name="nombre" placeholder="Nombre" required>
                 <input type="text" name="descripcion" placeholder="Descripción" required>
                 <input type="number" step="0.01" name="precio" placeholder="Precio" required>
@@ -79,11 +79,11 @@ if (!isset($_SESSION['usuario'])) {
 
                 <?php
                 $result = $conexion->query("
-    SELECT productos.*, categorias.nombre AS categoria_nombre
-    FROM productos
-    INNER JOIN categorias 
-    ON productos.categoria_id = categorias.id ORDER BY productos.id ASC
-");
+        SELECT productos.*, categorias.nombre AS categoria_nombre
+        FROM productos
+        INNER JOIN categorias 
+        ON productos.categoria_id = categorias.id ORDER BY productos.id ASC
+        ");
 
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
@@ -93,8 +93,8 @@ if (!isset($_SESSION['usuario'])) {
         <td>{$row['precio']}</td>
         <td>{$row['categoria_nombre']}</td>
         <td>
-            <a href='editar.php?id={$row['id']}'>Editar</a>
-            <a href='eliminar.php?id={$row['id']}'>Eliminar</a>
+            <a href='../views/editar.php?id={$row['id']}'>Editar</a>
+            <a href='../controllers/eliminar.php?id={$row['id']}'>Eliminar</a>
         </td>
     </tr>";
                 }

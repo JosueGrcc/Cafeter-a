@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../config/conexion.php");
 
 $id = $_POST['id'];
 $nombre = $_POST['nombre'];
@@ -11,5 +11,5 @@ $stmt = $conexion->prepare($sql);
 $stmt->bind_param("ssdi", $nombre, $descripcion, $precio, $id);
 $stmt->execute();
 
-header("Location: dashboard.php");
+header("Location: ../views/dashboard.php");
 ?>

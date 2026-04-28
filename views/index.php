@@ -8,13 +8,13 @@ session_start();
     <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Octava Café</title>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="diseno.css">
+    <link rel="stylesheet" href="../assets/css/diseno.css">
 </head>
 
 <body>
     <input type="checkbox" id="about-toggle" hidden>
     <audio id="bgMusic" autoplay loop>
-        <source src="resources/Ratatouille Ambient Music   PIXAR   Relax, Study, Sleep and Cook.mp3" type="audio/mpeg">
+        <source src="../assets/img/Ratatouille Ambient Music   PIXAR   Relax, Study, Sleep and Cook.mp3" type="audio/mpeg">
     </audio>
 
     <div id="menu_flotante">
@@ -70,10 +70,10 @@ session_start();
             <input type="radio" name="slider" id="img4">
 
             <div class="slides">
-                <div class="slide s1"><img src="resources/carr1.jpeg"></div>
-                <div class="slide s2"><img src="resources/carr2.jpeg"></div>
-                <div class="slide s3"><img src="resources/carr3.jpeg"></div>
-                <div class="slide s4"><img src="resources/carr5.jpeg"></div>
+                <div class="slide s1"><img src="../assets/img/carr1.jpeg"></div>
+                <div class="slide s2"><img src="../assets/img/carr2.jpeg"></div>
+                <div class="slide s3"><img src="../assets/img/carr3.jpeg"></div>
+                <div class="slide s4"><img src="../assets/img/carr5.jpeg"></div>
             </div>
 
             <!-- Flechas por estado -->
@@ -105,7 +105,7 @@ session_start();
 
 
         <div class="botones_arriba">
-            <img src="resources/Gemini_Generated_Image_gcpjwjgcpjwjgcpj-removebg-preview.png" alt="logo"
+            <img src="../assets/img/Gemini_Generated_Image_gcpjwjgcpjwjgcpj-removebg-preview.png" alt="logo"
                 class="logotipo">
             <a href="registro.html" class="enlace">Inicio</a>
             <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D"
@@ -129,7 +129,7 @@ session_start();
         <div class="imagenes_cafe">
 
             <div class="diseño">
-                <img src="resources/IMG-20260115-WA0002.jpg" alt="">
+                <img src="../assets/img/IMG-20260115-WA0002.jpg" alt="">
                 <div class="overlay">
                     <p>
                         Con este clima, el cuerpo pide café… y el corazón también. 🤍 <br><br>
@@ -140,7 +140,7 @@ session_start();
             </div>
 
             <div class="diseño">
-                <img src="resources/IMG-20260122-WA0054.jpg" alt="">
+                <img src="../assets/img/IMG-20260122-WA0054.jpg" alt="">
                 <div class="overlay">
                     <p>
                         Cada taza cuenta una historia… deja que la tuya comience aquí ☕
@@ -149,7 +149,7 @@ session_start();
             </div>
 
             <div class="diseño">
-                <img src="resources/IMG-20260204-WA0002.jpg" alt="">
+                <img src="../assets/img/IMG-20260204-WA0002.jpg" alt="">
                 <div class="overlay">
                     <p>
                         Un rincón acogedor, un café perfecto y un momento solo para ti 🤎
@@ -158,7 +158,7 @@ session_start();
             </div>
 
             <div class="diseño">
-                <img src="resources/IMG-20251213-WA0009.jpg" alt="">
+                <img src="../assets/img/IMG-20251213-WA0009.jpg" alt="">
                 <div class="overlay">
                     <p>
                         Respira profundo… huele el café recién hecho y disfruta el instante ✨
