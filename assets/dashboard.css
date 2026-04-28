@@ -1,0 +1,339 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FDFBF7; /* crema suave */
+    color: #3E2C23;
+}
+
+/* ===== HEADER ===== */
+.header {
+    width: 100%;
+    padding: 20px 40px;
+    position: relative;
+
+    background-color: #4B3621;
+    color: #FDFBF7;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.header h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.header div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header span {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.header a {
+    text-decoration: none;
+    color: #FDFBF7;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header a:hover {
+    opacity: 0.7;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* botón inicio */
+.inicio {
+    background-color: #F1EAE3;
+    color: #4B3621;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.inicio:hover {
+    background-color: #E0D6CC;
+}
+
+
+/* ===== CONTENEDOR ===== */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+/* ===== TARJETAS ===== */
+.card {
+    background: #FFFFFF;
+    padding: 25px 30px;
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+
+    margin-bottom: 30px;
+}
+
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/* ===== FORMULARIO ===== */
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+    border: 1px solid #E0D6CC;
+
+    background-color: #FAF7F3;
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #C8A27C;
+    box-shadow: 0 0 5px rgba(200,162,124,0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+
+    background-color: #C8A27C;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #B68F6A;
+}
+
+/* ===== TABLA ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th {
+    text-align: left;
+    padding: 12px;
+
+    background-color: #F1EAE3;
+    color: #4B3621;
+    font-weight: 600;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #EEE;
+}
+
+tr:hover {
+    background-color: #FAF7F3;
+}
+
+/* ===== BOTONES ===== */
+.btn {
+    padding: 6px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px;
+
+    display: inline-block;
+}
+
+/* editar */
+.btn-edit {
+    background-color: #A3B18A;
+    color: white;
+}
+
+/* eliminar */
+.btn-delete {
+    background-color: #D88C8C;
+    color: white;
+}
+
+/* hover suave */
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* ===== DETALLE BONITO ===== */
+.card, .header {
+    backdrop-filter: blur(4px);
+}
+
+.user-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+/* info visible */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 25px;
+
+    transition: 0.3s;
+}
+
+.user-info:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* avatar */
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+    background-color: #C8A27C;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* dropdown */
+.dropdown {
+    position: absolute;
+    top: 110%;        /* justo debajo del botón */
+    /* right: 0;         alineado al lado derecho del usuario */
+    left: 0;
+
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition: all 0.25s ease;
+    z-index: 9999; /*  clave */
+}
+
+/* items */
+.dropdown a {
+    padding: 12px;
+    text-decoration: none;
+    color: #3E2C23;
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.dropdown a:hover {
+    background-color: #F5EFE8;
+}
+
+/* mostrar */
+.user-menu:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ===== SELECT ESTILO CAFÉ ===== */
+select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+    border: 1px solid #E0D6CC;
+
+    background-color: #FAF7F3;
+    color: #3E2C23;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+
+    appearance: none; /* 🔥 quita estilo nativo */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* hover */
+select:hover {
+    border-color: #C8A27C;
+}
+
+/* focus */
+select:focus {
+    outline: none;
+    border-color: #C8A27C;
+    box-shadow: 0 0 6px rgba(200,162,124,0.25);
+}
+
+/* contenedor para flechita */
+.select-container {
+    position: relative;
+}
+
+/* flecha personalizada */
+.select-container::after {
+    content: "▾";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    color: #7a5c43;
+    pointer-events: none;
+    font-size: 14px;
+}
+select option[value=""] {
+    color: #A89C94;
+}
