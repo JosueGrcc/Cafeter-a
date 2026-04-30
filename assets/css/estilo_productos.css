@@ -12,14 +12,79 @@ body {
     margin: 0;
     color: var(--texto);
     padding-bottom: 100px; /* Espacio para la barra de pedido */
+    /* overflow: scroll; */
 }
 
 .header_menu {
     background-color: var(--cafe);
     color: var(--crema);
-    text-align: center;
-    padding: 30px;
+    padding: 20px 40px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex; /* Alinea elementos en horizontal */
+    justify-content: space-between; /* Separa el logo del menú */
+    align-items: center; /* Centra verticalmente */
+}
+.logo_titulo h1 { margin: 0; }
+.logo_titulo p { margin: 5px 0 0 0; opacity: 0.8; }
+.menu_usuario {
+    position: relative;
+}
+.btn_login, .btn_usuario {
+    background: var(--dorado);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+.btn_login:hover, .btn_usuario:hover {
+    background: var(--cafe-claro);
+}
+
+.dropdown {
+    position: relative;
+    padding-bottom: 15px; /* Este padding atrapa el ratón en el trayecto hacia abajo */
+}
+/* El contenedor de las opciones (oculto por defecto) */
+.dropdown_content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1000; /* Asegura que flote sobre los productos */
+}
+
+/* El truco: Mostrar el contenido cuando se pasa el mouse por el contenedor padre */
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+/* Opciones individuales del menú */
+.dropdown_content a {
+    color: var(--texto);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.dropdown_content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown_content a.btn_salir {
+    color: #d32f2f; /* Letra roja para destacar la salida */
+    border-top: 1px solid #eee;
 }
 
 .contenedor_principal {
@@ -60,12 +125,19 @@ body {
     color: white;
 }
 
+.area_principal {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 60vh; /* <--- Evita que el contenedor colapse al vaciarse */
+}
 /* Grid de Productos */
 .grid_productos {
-    flex: 3;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+    align-content: start; /* <--- Mantiene los productos pegados arriba si son pocos */
 }
 
 .tarjeta_producto {
@@ -112,12 +184,129 @@ body {
 
 .total_texto { font-size: 1.4rem; font-weight: bold; margin-right: 20px; }
 .btn_confirmar {
-    background: #4caf50;
+    background: #4caf50; /* Color verde */
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 12px 30px;
     border-radius: 30px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
+
+.btn_confirmar:hover {
+    background: #43a047;
+    transform: scale(1.05); /* Efecto de crecimiento suave al pasar el mouse */
+}
+
+/* Estilos para la barra de búsqueda */
+.buscador_input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--texto);
+    background-color: white;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.buscador_input:focus {
+    outline: none;
+    border-color: var(--cafe-claro);
+    box-shadow: 0 4px 15px rgba(109, 76, 65, 0.2);
+}
+
+/* --- ESTILOS DEL MODAL (CARRITO) --- */
+.modal_oculto {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido_modal {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.header_modal h2 { margin: 0; color: var(--cafe); }
+
+.btn_cerrar {
+    background: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px; height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#lista_carrito_detalles {
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-bottom: 15px;
+    padding-right: 5px;
+}
+
+/* --- ESTILOS DE CADA PRODUCTO EN EL CARRITO --- */
+.item_carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item_info_carrito { display: flex; flex-direction: column; width: 40%; }
+.precio_unitario { font-size: 0.85rem; color: #888; }
+
+.controles_cantidad { display: flex; align-items: center; gap: 10px; }
+.btn_circular {
+    background: var(--cafe-claro);
+    color: white; border: none;
+    width: 25px; height: 25px;
+    border-radius: 50%; cursor: pointer;
+    font-weight: bold;
+}
+.btn_circular:hover { background: var(--cafe); }
+.cantidad_texto { font-weight: bold; width: 20px; text-align: center; }
+
+.item_subtotal_carrito {
+    display: flex; align-items: center; gap: 15px; width: 30%; justify-content: flex-end;
+}
+.btn_basura {
+    background: transparent; border: none; font-size: 1.2rem; cursor: pointer;
+}
+
+.footer_modal {
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer_modal h3 { margin: 0; color: var(--cafe); }

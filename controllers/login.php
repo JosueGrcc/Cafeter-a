@@ -13,7 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = mysqli_fetch_assoc($resultado);
 
         if (password_verify($password_ingresada, $usuario['contrasena'])) {
-            $_SESSION['usuario'] = $usuario['nombre'];
+            // --- AQUÍ ESTÁ EL CAMBIO ---
+            $_SESSION['usuario_id'] = $usuario['id']; // Guardamos el ID para los pedidos
+            $_SESSION['usuario'] = $usuario['nombre']; // Guardamos el nombre para el saludo
+            
             header("Location: ../views/index.php"); 
             exit();
         }
