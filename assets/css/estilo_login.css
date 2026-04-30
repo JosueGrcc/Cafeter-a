@@ -137,3 +137,13 @@ input:focus {
     transform: translateY(-2px);
 }
 
+#mensaje-error {
+    display: none; /* Crucial para que no aparezca siempre */
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+    text-align: center;
+}

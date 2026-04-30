@@ -111,8 +111,7 @@ session_start();
             <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank" class="enlace">Ubicacion</a>
             <label for="about-toggle" class="enlace">Sobre Nosotros</label>
-            <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488432,-105.3837222,3a,75y,90t/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgIC_zbicwAE!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FAHVAweqbOKQgvdSZtOed-r-tMQ16PcjWgYXgoRCj8umd-GELBnXgHZBndtachh1QZfkIGhiOsSyHd5OV96vKTDWFSKWZefG6IvyNylStb8_1dpmF1FKPL33nrtRQPUnfNEyoOwU3qLmC2w%3Dw195-h146-k-no!7i4080!8i3072!4m7!3m6!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!10e9!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D"
-                class="enlace" target="_blank">Productos</a>
+            <a href="productos.php" class="enlace">Productos</a>
             <a href="#informacion" class="enlace">Informacion</a>
             <?php if (isset($_SESSION['usuario'])): ?>
                 <a href="dashboard.php" class="usuario_btn">

@@ -134,3 +134,15 @@ body {
 .boton_login:hover {
     background-color: #A05E39;
 }
+
+#mensaje-error {
+    display: none; 
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}

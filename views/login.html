@@ -7,19 +7,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/estilo_login.css">
-    <style>
-        #mensaje-error {
-            display: none;
-            background: #ffebee;
-            color: #c62828;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ef9a9a;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -65,12 +52,7 @@
         </section>
 
     </main>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('error')) {
-            document.getElementById('mensaje-error').style.display = 'block';
-        }
-    </script>
+    <script src="../alertas.js"></script>
     
 </body>
 </html>

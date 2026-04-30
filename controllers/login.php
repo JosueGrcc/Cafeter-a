@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    header("Location: ../views/login.php?error=1");
+    header("Location: ../views/login.html?error=password_incorrecto");
     exit();
 }
 ?>
