@@ -147,3 +147,24 @@ input:focus {
     margin-bottom: 20px;
     text-align: center;
 }
+
+/* --- Botón de Regresar --- */
+.contenedor_regresar {
+    text-align: left;
+    width: 100%;
+}
+
+.boton_regresar {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #8D6E63;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.boton_regresar:hover {
+    color: #3E2723; 
+    transform: translateX(-5px); 
+}

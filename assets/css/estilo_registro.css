@@ -146,3 +146,23 @@ body {
     font-size: 0.9rem;
     text-align: center;
 }
+
+.contenedor_regresar {
+    text-align: left;
+    width: 100%;
+}
+
+.boton_regresar {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #8D6E63;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.boton_regresar:hover {
+    color: #3E2723;
+    transform: translateX(-5px);
+}
