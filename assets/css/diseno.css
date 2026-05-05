@@ -16,77 +16,103 @@ html {
     scroll-behavior: smooth;
 }
 .botones_arriba {
+    background-color: #3e2723; /* El color café que querías */
     display: flex;
-    font-family: "Pangolin", cursive;
-    gap: 80px;
     align-items: center;
+    gap: 30px; /* Espacio entre tu logo y tus enlaces */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 120px;
-    background-color: #4B3621;
-    padding: 1%;
-    display: flex;
-    justify-content: center;
-    padding: 10px 50px;
+    padding: 0 50px;
     box-sizing: border-box;
     z-index: 1000;
 }
 
 .usuario_btn {
-    /* background: red; */
-    position: absolute;
-    right: 30px;
-    top: 20px;
+    margin-left: auto; 
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    text-decoration: none;
+.btn_login, .btn_usuario {
+    background-color: #a1887f; /* Color dorado */
     color: white;
-    font-family: "Pangolin", cursive;
-
-    z-index: 2000; /* 🔥 clave para que no quede detrás */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
 }
 
-.icono_usuario {
-    width: 45px;
-    height: 45px;
-    background-color: #d6c6b2;
-    color: #4B3621;
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 20px;
+.btn_login:hover, .btn_usuario:hover {
+    background-color: #6d4c41;
 }
 
-.usuario_btn span {
-    font-size: 12px;
+.dropdown {
+    position: relative;
+    padding-bottom: 15px; /* Puente invisible */
 }
 
+.dropdown_content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 1100;
+}
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+.dropdown_content a {
+    color: #2d2d2d;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.dropdown_content a:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown_content a.btn_salir {
+    color: #d32f2f;
+    border-top: 1px solid #eee;
+}
 .logotipo {
     width: 10%;               
     height: auto;
-    margin-right: 120px;     
-    margin-left: -300px;   
+    margin-right: 200px;     
 }
 
 .enlace {
     display: inline-block;
-    text-decoration: none;
-    transition: 0.3;
-    background-color: #4B3621;
+    text-decoration: none ; /* Quita subrayado */
+    border-bottom: none ;  /* Quita posibles bordes */
+    outline: none ;         /* Quita líneas de selección */
+    transition: 0.3s;
+    background-color: transparent; 
     color: white;
     font-weight: bolder;
     font-size: 19px;
     font-style: italic;
+    cursor: pointer;
 }
 
+.enlace:hover {
+    color: #a1887f; 
+    text-decoration: none !important;
+    border-bottom: none ;
+    background-color: transparent; /* Por si el fondo oscuro crea contraste */
+}
 .principal {
     /* margin: 10%; */
     /* padding: 20px; */

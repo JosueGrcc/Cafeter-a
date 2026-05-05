@@ -5,7 +5,8 @@ session_start();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Octava Café</title>
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/diseno.css">
@@ -14,7 +15,8 @@ session_start();
 <body>
     <input type="checkbox" id="about-toggle" hidden>
     <audio id="bgMusic" autoplay loop>
-        <source src="../assets/img/Ratatouille Ambient Music   PIXAR   Relax, Study, Sleep and Cook.mp3" type="audio/mpeg">
+        <source src="../assets/img/Ratatouille Ambient Music   PIXAR   Relax, Study, Sleep and Cook.mp3"
+            type="audio/mpeg">
     </audio>
 
     <div id="menu_flotante">
@@ -107,23 +109,30 @@ session_start();
         <div class="botones_arriba">
             <img src="../assets/img/Gemini_Generated_Image_gcpjwjgcpjwjgcpj-removebg-preview.png" alt="logo"
                 class="logotipo">
+
             <a href="registro.html" class="enlace">Inicio</a>
             <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank" class="enlace">Ubicacion</a>
             <label for="about-toggle" class="enlace">Sobre Nosotros</label>
             <a href="productos.php" class="enlace">Productos</a>
             <a href="#informacion" class="enlace">Informacion</a>
-            <?php if (isset($_SESSION['usuario'])): ?>
-                <a href="dashboard.php" class="usuario_btn">
-                    <div class="icono_usuario">👤</div>
-                    <span><?php echo $_SESSION['usuario']; ?></span>
-                </a>
-            <?php else: ?>
-                <a href="login.html" class="usuario_btn">
-                    <div class="icono_usuario">👤</div>
-                    <span>Login</span>
-                </a>
-            <?php endif; ?>
+
+            <div class="usuario_btn">
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    <div class="dropdown">
+                        <button class="btn_usuario">
+                            Hola, <?php echo explode(" ", $_SESSION['usuario'])[0]; ?> ▼
+                        </button>
+                        <div class="dropdown_content">
+                            <a href="dashboard.php">Dashboard</a>
+                            <a href="../controllers/cuenta.php">Mi Cuenta</a>
+                            <a href="../controllers/logout.php" class="btn_salir">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <a href="login.html" class="btn_login">Iniciar Sesión</a>
+                <?php endif; ?>
+            </div>
         </div>
         <div class="imagenes_cafe">
 
@@ -175,8 +184,8 @@ session_start();
             <h3>Horario:</h3>
             <span>Lunes a Sábado: </span>
             <ul>
-            <li><span>7:00 am a </li>
-            <li>1:00 pm</span></li>
+                <li><span>7:00 am a </li>
+                <li>1:00 pm</span></li>
             </ul>
 
             <span class="pais">📍 México</span>
