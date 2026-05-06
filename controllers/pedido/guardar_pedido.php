@@ -2,7 +2,6 @@
 include '../../config/conexion.php'; 
 session_start();
 
-// 1. Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['usuario_id'])) {
     echo json_encode([
         'success' => false, 
@@ -12,9 +11,8 @@ if (!isset($_SESSION['usuario_id'])) {
     exit;
 }
 
-$usuario_id = $_SESSION['usuario_id']; // Ahora estamos seguros de que existe
+$usuario_id = $_SESSION['usuario_id'];
 
-// Leer datos del carrito
 $datos = json_decode(file_get_contents('php://input'), true);
 
 if (!$datos || empty($datos['items'])) {

@@ -1,0 +1,141 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FDFBF7; 
+    color: #3E2723;
+    padding: 40px 20px;
+}
+
+.contenedor_pedidos {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.encabezado_seccion {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo_pedidos {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitulo_pedidos {
+    color: #8D6E63;
+}
+
+.lista_pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tarjeta_pedido {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 8px solid #ccc; 
+    transition: 0.3s;
+}
+
+.tarjeta_pedido:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+
+.estado-camino { border-left-color: #C67D53; }  
+.estado-entregado { border-left-color: #66BB6A; } 
+.estado-cancelado { border-left-color: #EF5350; } 
+
+.cuerpo_pedido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.id_pedido {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #8D6E63;
+}
+
+.detalles {
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.fecha {
+    font-size: 0.8rem;
+    color: #b1a099;
+}
+
+.info_pago {
+    text-align: right;
+}
+
+.etiqueta_estado {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.precio {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.acciones {
+    border-top: 1px solid #f1f1f1;
+    padding-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn_accion {
+    background: #C67D53;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn_detalle {
+    background: #f1f1f1;
+    color: #3E2723;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn_accion:hover { background: #A05E39; }
+.btn_detalle:hover { background: #e0e0e0; }
+
+
+@media (max-width: 600px) {
+    .cuerpo_pedido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .info_pago {
+        text-align: left;
+        margin-top: 10px;
+    }
+}
