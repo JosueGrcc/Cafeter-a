@@ -14,8 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password_ingresada, $usuario['contrasena'])) {
             // --- AQUÍ ESTÁ EL CAMBIO ---
-            $_SESSION['usuario_id'] = $usuario['id']; // Guardamos el ID para los pedidos
-            $_SESSION['usuario'] = $usuario['nombre']; // Guardamos el nombre para el saludo
+            $_SESSION['usuario_id'] = $usuario['id']; 
+            $_SESSION['usuario'] = $usuario['nombre']; 
+            $_SESSION['rol'] = $usuario['rol'];
             
             header("Location: ../views/index.php"); 
             exit();

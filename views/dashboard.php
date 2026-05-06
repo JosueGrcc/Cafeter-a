@@ -2,8 +2,9 @@
 session_start();
 include '../config/conexion.php';
 
-if (!isset($_SESSION['usuario'])) {
-    header("Location: ../views/login.html");
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
+    header("Location: index.php");
+    exit();
 }
 ?>
 
@@ -41,6 +42,60 @@ if (!isset($_SESSION['usuario'])) {
 
     <div class="container">
         <div class="card">
+                <h3>Pedidos de Clientes</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Cambiar Estado</th>
+        </tr>
+
+        <?php
+        $pedidos = $conexion->query("
+            SELECT pedidos.*, usuarios.nombre AS nombre_cliente
+            FROM pedidos
+            JOIN usuarios ON pedidos.usuario_id = usuarios.id
+            ORDER BY pedidos.fecha DESC
+        ");
+
+        while ($pedido = $pedidos->fetch_assoc()):
+            // Clase de color según estado
+            $clase = match($pedido['estado']) {
+                'en_proceso'  => 'estado-camino',
+                'entregado'   => 'estado-entregado',
+                'cancelado'   => 'estado-cancelado',
+                default       => ''
+            };
+        ?>
+        <tr class="<?php echo $clase; ?>">
+            <td>#<?php echo $pedido['id']; ?></td>
+            <td><?php echo $pedido['nombre_cliente']; ?></td>
+            <td><?php echo $pedido['fecha']; ?></td>
+            <td>$<?php echo number_format($pedido['total'], 2); ?></td>
+            <td><strong><?php echo ucfirst(str_replace('_', ' ', $pedido['estado'])); ?></strong></td>
+            <td>
+                <form action="../controllers/actualizar_estado.php" method="POST">
+                    <input type="hidden" name="pedido_id" value="<?php echo $pedido['id']; ?>">
+                    <div class="select-container">
+                        <select name="nuevo_estado">
+                            <option value="pendiente"   <?php echo $pedido['estado'] === 'pendiente'   ? 'selected' : ''; ?>>Pendiente</option>
+                            <option value="en_proceso"  <?php echo $pedido['estado'] === 'en_proceso'  ? 'selected' : ''; ?>>En proceso</option>
+                            <option value="entregado"   <?php echo $pedido['estado'] === 'entregado'   ? 'selected' : ''; ?>>Entregado</option>
+                            <option value="cancelado"   <?php echo $pedido['estado'] === 'cancelado'   ? 'selected' : ''; ?>>Cancelado</option>
+                        </select>
+                    </div>
+                    <button type="submit" style="width:auto; padding: 6px 14px; margin-top: 6px;">
+                        Actualizar
+                    </button>
+                </form>
+            </td>
+        </tr>
+        <?php endwhile; ?>
+    </table>
+</div>
             <h3>Agregar producto</h3>
 
             <form action="../controllers/insertar.php" method="POST">

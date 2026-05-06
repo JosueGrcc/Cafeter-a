@@ -124,7 +124,13 @@ session_start();
                             Hola, <?php echo explode(" ", $_SESSION['usuario'])[0]; ?> ▼
                         </button>
                         <div class="dropdown_content">
-                            <a href="dashboard.php">Dashboard</a>
+                            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+                                <!-- Lo que ve el Admin -->
+                                <a href="dashboard.php" style="color: #8D6E63; font-weight: bold;"> Panel de Control</a>
+                            <?php else: ?>
+                                <a href="mis_pedidos.php">☕ Mis Pedidos</a>
+                            <?php endif; ?>
+
                             <a href="../controllers/cuenta.php">Mi Cuenta</a>
                             <a href="../controllers/logout.php" class="btn_salir">Cerrar Sesión</a>
                         </div>

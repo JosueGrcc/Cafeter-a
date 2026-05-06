@@ -337,3 +337,7 @@ select:focus {
 select option[value=""] {
     color: #A89C94;
 }
+/* Colores de estado en la tabla de pedidos */
+tr.estado-camino    td { border-left: 4px solid #C67D53; }
+tr.estado-entregado td { border-left: 4px solid #66BB6A; }
+tr.estado-cancelado td { border-left: 4px solid #EF5350; }

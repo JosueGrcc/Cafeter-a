@@ -1,6 +1,12 @@
 <?php 
-    session_start();
-    include '../config/conexion.php'; 
+session_start();
+
+if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin') {
+    header("Location: dashboard.php");
+    exit();
+}
+
+include '../config/conexion.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="es">
