@@ -77,7 +77,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
             <td>$<?php echo number_format($pedido['total'], 2); ?></td>
             <td><strong><?php echo ucfirst(str_replace('_', ' ', $pedido['estado'])); ?></strong></td>
             <td>
-                <form action="../controllers/actualizar_estado.php" method="POST">
+                <form action="../controllers/pedido/actualizar_estado.php" method="POST">
                     <input type="hidden" name="pedido_id" value="<?php echo $pedido['id']; ?>">
                     <div class="select-container">
                         <select name="nuevo_estado">
