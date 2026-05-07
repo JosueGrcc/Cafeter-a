@@ -1,15 +1,20 @@
 <?php
 include("../config/conexion.php");
 
-$id = $_POST['id'];
-$nombre = $_POST['nombre'];
-$descripcion = $_POST['descripcion'];
-$precio = $_POST['precio'];
+header('Content-Type: application/json');
 
-$sql = "UPDATE productos SET nombre=?, descripcion=?, precio=? WHERE id=?";
+$id          = intval($_POST['id']);
+$nombre      = mysqli_real_escape_string($conexion, $_POST['nombre']);
+$descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
+$precio      = floatval($_POST['precio']);
+$categoria   = intval($_POST['categoria_id']);
+
+$sql  = "UPDATE productos SET nombre=?, descripcion=?, precio=?, categoria_id=? WHERE id=?";
 $stmt = $conexion->prepare($sql);
-$stmt->bind_param("ssdi", $nombre, $descripcion, $precio, $id);
-$stmt->execute();
+$stmt->bind_param("ssdii", $nombre, $descripcion, $precio, $categoria, $id);
 
-header("Location: ../views/dashboard.php");
-?>
+if ($stmt->execute()) {
+    echo json_encode(['success' => true]);
+} else {
+    echo json_encode(['success' => false, 'mensaje' => $conexion->error]);
+}

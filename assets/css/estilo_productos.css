@@ -1,92 +1,171 @@
 :root {
     --cafe: #3e2723;
     --cafe-claro: #6d4c41;
+    --cafe-medio: #6D4C41;
     --crema: #fdfaf5;
+    --crema-oscura: #F1EAE3;
     --dorado: #a1887f;
+    --dorado-acento: #C67D53;
     --texto: #2d2d2d;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
     color: var(--texto);
-    padding-bottom: 100px; /* Espacio para la barra de pedido */
-    /* overflow: scroll; */
+    padding-bottom: 100px;
 }
 
-.header_menu {
-    background-color: var(--cafe);
-    color: var(--crema);
-    padding: 20px 40px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: flex; /* Alinea elementos en horizontal */
-    justify-content: space-between; /* Separa el logo del menú */
-    align-items: center; /* Centra verticalmente */
+/* ===================================================
+   HEADER — mismo diseño que mis_pedidos / cuenta
+=================================================== */
+.header {
+    background-color: #3E2723;
+    color: #FDFBF7;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    width: 100%;
 }
-.logo_titulo h1 { margin: 0; }
-.logo_titulo p { margin: 5px 0 0 0; opacity: 0.8; }
-.menu_usuario {
-    position: relative;
+
+.header-marca {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    color: #FDFBF7;
 }
-.btn_login, .btn_usuario {
-    background: var(--dorado);
-    color: white;
+.header-marca span { color: #A1887F; }
+
+.header-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    opacity: 0.6;
+    margin-left: 6px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.btn_regresar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
+    color: #FDFBF7;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.12);
+    padding: 8px 18px;
+    border-radius: 25px;
+    white-space: nowrap;
+    transition: background 0.3s, transform 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn_regresar:hover {
+    background: rgba(255,255,255,0.22);
+    transform: translateX(-3px);
+}
+
+/* Botón login cuando no hay sesión */
+.btn_login_header {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: #C67D53;
+    padding: 8px 20px;
+    border-radius: 25px;
+    white-space: nowrap;
     transition: background 0.3s;
+    font-family: 'Montserrat', sans-serif;
 }
-.btn_login:hover, .btn_usuario:hover {
-    background: var(--cafe-claro);
+.btn_login_header:hover { background: #A05E39; }
+
+/* User menu */
+.user-menu { position: relative; cursor: pointer; }
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(255,255,255,0.12);
+    padding: 7px 14px;
+    border-radius: 25px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: background 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+}
+.user-info:hover { background: rgba(255,255,255,0.22); }
+
+.avatar-sm {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: #C67D53;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.dropdown {
-    position: relative;
-    padding-bottom: 15px; /* Este padding atrapa el ratón en el trayecto hacia abajo */
-}
-/* El contenedor de las opciones (oculto por defecto) */
-.dropdown_content {
-    display: none;
+.header-dropdown {
     position: absolute;
+    top: calc(100% + 10px);
     right: 0;
-    top: 100%;
-    background-color: white;
-    min-width: 180px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 10px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    min-width: 165px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.25s ease;
+    z-index: 9999;
     overflow: hidden;
-    z-index: 1000; /* Asegura que flote sobre los productos */
 }
-
-/* El truco: Mostrar el contenido cuando se pasa el mouse por el contenedor padre */
-.dropdown:hover .dropdown_content {
+.user-menu:hover .header-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.header-dropdown a {
     display: block;
-}
-
-/* Opciones individuales del menú */
-.dropdown_content a {
-    color: var(--texto);
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    color: #3E2723;
+    font-size: 0.87rem;
     font-weight: 500;
-    transition: background 0.3s;
+    transition: background 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+.header-dropdown a:hover { background: #F1EAE3; }
+.header-dropdown a.btn_salir {
+    color: #c62828;
+    border-top: 1px solid #F1EAE3;
 }
 
-.dropdown_content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown_content a.btn_salir {
-    color: #d32f2f; /* Letra roja para destacar la salida */
-    border-top: 1px solid #eee;
-}
-
+/* ===================================================
+   LAYOUT
+=================================================== */
 .contenedor_principal {
     display: flex;
     max-width: 1200px;
@@ -118,8 +197,8 @@ body {
     text-align: left;
     font-weight: 600;
     transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
 }
-
 .btn_cat:hover, .btn_cat.active {
     background: var(--cafe);
     color: white;
@@ -130,14 +209,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    min-height: 60vh; /* <--- Evita que el contenedor colapse al vaciarse */
+    min-height: 60vh;
 }
+
 /* Grid de Productos */
 .grid_productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    align-content: start; /* <--- Mantiene los productos pegados arriba si son pocos */
+    align-content: start;
 }
 
 .tarjeta_producto {
@@ -163,11 +243,13 @@ body {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }
-
 .btn_agregar:hover { background: var(--cafe); }
 
-/* Barra de Pedido Flotante */
+/* ===================================================
+   BARRA PEDIDO FLOTANTE
+=================================================== */
 .barra_pedido {
     position: fixed;
     bottom: 0;
@@ -183,8 +265,9 @@ body {
 }
 
 .total_texto { font-size: 1.4rem; font-weight: bold; margin-right: 20px; }
+
 .btn_confirmar {
-    background: #4caf50; /* Color verde */
+    background: #4caf50;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -192,15 +275,17 @@ body {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
     transition: transform 0.2s ease, background 0.2s ease;
 }
-
 .btn_confirmar:hover {
     background: #43a047;
-    transform: scale(1.05); /* Efecto de crecimiento suave al pasar el mouse */
+    transform: scale(1.05);
 }
 
-/* Estilos para la barra de búsqueda */
+/* ===================================================
+   BUSCADOR
+=================================================== */
 .buscador_input {
     width: 100%;
     padding: 15px;
@@ -214,16 +299,17 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-
 .buscador_input:focus {
     outline: none;
     border-color: var(--cafe-claro);
     box-shadow: 0 4px 15px rgba(109, 76, 65, 0.2);
 }
 
-/* --- ESTILOS DEL MODAL (CARRITO) --- */
+/* ===================================================
+   MODAL CARRITO
+=================================================== */
 .modal_oculto {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0,0,0,0.6);
@@ -252,7 +338,6 @@ body {
     padding-bottom: 10px;
     margin-bottom: 15px;
 }
-
 .header_modal h2 { margin: 0; color: var(--cafe); }
 
 .btn_cerrar {
@@ -272,7 +357,6 @@ body {
     padding-right: 5px;
 }
 
-/* --- ESTILOS DE CADA PRODUCTO EN EL CARRITO --- */
 .item_carrito {
     display: flex;
     justify-content: space-between;
@@ -310,3 +394,11 @@ body {
     align-items: center;
 }
 .footer_modal h3 { margin: 0; color: var(--cafe); }
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+@media (max-width: 600px) {
+    .header { padding: 14px 18px; }
+    .header-sub { display: none; }
+}

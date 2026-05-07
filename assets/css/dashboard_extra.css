@@ -1,0 +1,137 @@
+/* =============================================
+   POPUP PERSONALIZADO
+============================================= */
+.popup_overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 15, 8, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.22s ease;
+}
+
+.popup_overlay.popup_visible { opacity: 1; }
+
+.popup_caja {
+    background: var(--blanco);
+    border-radius: 20px;
+    padding: 36px 32px 28px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 24px 60px rgba(62, 39, 35, 0.22);
+    text-align: center;
+    transform: translateY(18px) scale(0.97);
+    transition: transform 0.25s cubic-bezier(.34,1.56,.64,1);
+}
+
+.popup_overlay.popup_visible .popup_caja {
+    transform: translateY(0) scale(1);
+}
+
+.popup_icono {
+    font-size: 2.6rem;
+    line-height: 1;
+    margin-bottom: 14px;
+}
+
+.popup_titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--cafe-oscuro);
+    margin-bottom: 10px;
+}
+
+.popup_mensaje {
+    font-size: 0.9rem;
+    color: var(--gris);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.popup_acciones {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.popup_btn {
+    padding: 11px 26px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+}
+
+.popup_btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.popup_btn_cancel {
+    background: var(--crema-oscura);
+    color: var(--cafe-medio);
+}
+
+.popup_btn_ok {
+    color: white;
+}
+
+/* =============================================
+   TAB EDITAR (temporal, oculto por defecto)
+============================================= */
+#tab_btn_editar {
+    display: none; /* se muestra desde JS */
+    background: linear-gradient(135deg, #fff8f0, #fdebd8);
+    color: var(--dorado);
+    border-bottom: 2px solid var(--dorado);
+    position: relative;
+}
+
+#tab_btn_editar.active {
+    background: var(--blanco);
+    color: var(--dorado);
+    border-bottom: 2px solid var(--dorado);
+}
+
+#tab_btn_editar::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--dorado);
+    animation: pulsar 1.5s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.5); opacity: 0.5; }
+}
+
+/* Panel editar hereda estilos de panel agregar */
+#panel_editar .card-titulo h3 { color: var(--dorado); }
+
+.btn_cancelar_edicion {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 11px 20px;
+    background: var(--crema-oscura);
+    color: var(--cafe-medio);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    height: 44px;
+}
+
+.btn_cancelar_edicion:hover { background: #e5d9cf; }
