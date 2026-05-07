@@ -30,10 +30,15 @@ if (!$resultado) {
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <main class="contenedor_pedidos">
         <header class="encabezado_seccion">
             <h1 class="titulo_pedidos">Tu Historial de Antojos</h1>
         </header>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.php" style="text-decoration: none; color: #8D6E63; font-weight: 700;">← Volver al inicio</a>
+        </div>
 
         <section class="lista_pedidos">
             <?php 
@@ -61,10 +66,6 @@ if (!$resultado) {
                 <p style="text-align:center;">Aún no has realizado pedidos. ¡Ve por un café!</p>
             <?php endif; ?>
         </section>
-
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="index.php" style="text-decoration: none; color: #8D6E63; font-weight: 700;">← Volver al inicio</a>
-        </div>
     </main>
 </body>
 </html>

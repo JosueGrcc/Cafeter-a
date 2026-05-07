@@ -1,10 +1,10 @@
 <?php
-include '../../config/conexion.php'; 
+include '../../config/conexion.php';
 session_start();
 
 if (!isset($_SESSION['usuario_id'])) {
     echo json_encode([
-        'success' => false, 
+        'success' => false,
         'error' => 'SESION_NO_INICIADA',
         'mensaje' => 'Debes iniciar sesión para realizar un pedido.'
     ]);

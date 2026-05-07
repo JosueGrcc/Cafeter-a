@@ -16,10 +16,11 @@ html {
     scroll-behavior: smooth;
 }
 .botones_arriba {
-    background-color: #3e2723; /* El color café que querías */
+    background-color: #3e2723;
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre tu logo y tus enlaces */
+    justify-content: center;
+    gap: 30px;
     position: absolute;
     top: 0;
     left: 0;
@@ -32,6 +33,7 @@ html {
 
 .usuario_btn {
     margin-left: auto; 
+    min-width: 221px;
 }
 
 .btn_login, .btn_usuario {
@@ -94,10 +96,11 @@ html {
 }
 
 .enlace {
+    width: 80%;
     display: inline-block;
-    text-decoration: none ; /* Quita subrayado */
-    border-bottom: none ;  /* Quita posibles bordes */
-    outline: none ;         /* Quita líneas de selección */
+    text-decoration: none ; 
+    border-bottom: none ;  
+    outline: none ;       
     transition: 0.3s;
     background-color: transparent; 
     color: white;
@@ -111,7 +114,7 @@ html {
     color: #a1887f; 
     text-decoration: none !important;
     border-bottom: none ;
-    background-color: transparent; /* Por si el fondo oscuro crea contraste */
+    background-color: transparent; 
 }
 .principal {
     /* margin: 10%; */

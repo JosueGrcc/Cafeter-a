@@ -14,10 +14,13 @@ session_start();
 
 <body>
     <input type="checkbox" id="about-toggle" hidden>
-    <audio id="bgMusic" autoplay loop>
-        <source src="../assets/img/Ratatouille Ambient Music   PIXAR   Relax, Study, Sleep and Cook.mp3"
+
+
+    <!-- <audio id="bgMusic" autoplay loop>
+        <source src="../assets/img/Ratatouilmp3le Ambient Music   PIXAR   Relax, Study, Sleep and Cook."
             type="audio/mpeg">
-    </audio>
+    </audio> -->
+
 
     <div id="menu_flotante">
         <button class="boton_inicial">☰</button>
@@ -110,7 +113,6 @@ session_start();
             <img src="../assets/img/Gemini_Generated_Image_gcpjwjgcpjwjgcpj-removebg-preview.png" alt="logo"
                 class="logotipo">
 
-            <a href="registro.html" class="enlace">Inicio</a>
             <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank" class="enlace">Ubicacion</a>
             <label for="about-toggle" class="enlace">Sobre Nosotros</label>
@@ -128,10 +130,10 @@ session_start();
                                 <!-- Lo que ve el Admin -->
                                 <a href="dashboard.php" style="color: #8D6E63; font-weight: bold;"> Panel de Control</a>
                             <?php else: ?>
-                                <a href="mis_pedidos.php">☕ Mis Pedidos</a>
+                                <a href="mis_pedidos.php">Mis Pedidos</a>
                             <?php endif; ?>
 
-                            <a href="../controllers/cuenta.php">Mi Cuenta</a>
+                            <a href="../views/cuenta.php">Mi Cuenta</a>
                             <a href="../controllers/logout.php" class="btn_salir">Cerrar Sesión</a>
                         </div>
                     </div>
@@ -277,9 +279,6 @@ session_start();
                 menu.classList.remove('show');
             }
         });
-        document.addEventListener("click", function () {
-            document.getElementById("bgMusic").play();
-        }, { once: true });
     </script>
 </body>
 
