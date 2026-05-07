@@ -1,19 +1,16 @@
 <?php
 include("../config/conexion.php");
 
-header('Content-Type: application/json');
+$nombre      = $_POST['nombre'];
+$descripcion = $_POST['descripcion'];
+$precio      = $_POST['precio'];
+$categoria   = $_POST['categoria_id'];
+$imagen      = isset($_POST['imagen']) ? trim($_POST['imagen']) : '';
 
-$nombre      = mysqli_real_escape_string($conexion, $_POST['nombre']);
-$descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
-$precio      = floatval($_POST['precio']);
-$categoria   = intval($_POST['categoria_id']);
-
-$sql  = "INSERT INTO productos (nombre, descripcion, precio, categoria_id) VALUES (?, ?, ?, ?)";
+$sql = "INSERT INTO productos (nombre, descripcion, precio, categoria_id, imagen) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conexion->prepare($sql);
-$stmt->bind_param("ssdi", $nombre, $descripcion, $precio, $categoria);
+$stmt->bind_param("ssdis", $nombre, $descripcion, $precio, $categoria, $imagen);
+$stmt->execute();
 
-if ($stmt->execute()) {
-    echo json_encode(['success' => true, 'id' => $conexion->insert_id]);
-} else {
-    echo json_encode(['success' => false, 'mensaje' => $conexion->error]);
-}
+header("Location: ../views/dashboard.php");
+?>

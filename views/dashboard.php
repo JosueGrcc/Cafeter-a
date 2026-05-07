@@ -38,11 +38,10 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
     <title>Panel de Control — Octava Café</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
-    <link rel="stylesheet" href="../assets/css/dashboard_extra.css">
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+
 <header class="header">
     <span class="header-marca">
         OCTAVA <span>CAFÉ</span>
@@ -63,27 +62,21 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
     </div>
 </header>
 
-<!-- ===== TABS NAV ===== -->
 <nav class="tabs_nav">
-    <button class="tab_btn" data-tab="agregar" onclick="cambiarTab(this,'agregar')">
+    <button class="tab_btn" onclick="cambiarTab(this,'agregar')">
         <span class="tab_icon">➕</span> Agregar
     </button>
-    <button class="tab_btn" data-tab="productos" onclick="cambiarTab(this,'productos')">
+    <button class="tab_btn" onclick="cambiarTab(this,'productos')">
         <span class="tab_icon">📦</span> Productos
     </button>
-    <button class="tab_btn" data-tab="pedidos" onclick="cambiarTab(this,'pedidos')">
+    <button class="tab_btn" onclick="cambiarTab(this,'pedidos')">
         <span class="tab_icon">🧾</span> Pedidos
-    </button>
-    <!-- Tab editar: oculto hasta que se haga clic en Editar -->
-    <button class="tab_btn" id="tab_btn_editar" data-tab="editar" onclick="cambiarTab(this,'editar')">
-        <span class="tab_icon">✏️</span> Editando
     </button>
 </nav>
 
-<!-- ===== CONTENEDOR ===== -->
 <div class="container">
 
-    <!-- ===== BIENVENIDA (gato) ===== -->
+
     <div id="bienvenida" class="bienvenida">
         <svg class="gato_svg" viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
             <!-- Orejas -->
@@ -141,13 +134,11 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
         <p class="bienvenida_sub">Selecciona una pestaña para gestionar tu cafetería</p>
     </div>
 
-    <!-- ========== PANEL AGREGAR ========== -->
     <div id="panel_agregar" class="panel">
         <div class="card">
             <div class="card-titulo"><h3>➕ Agregar nuevo producto</h3></div>
             <div class="card-body open">
-                <form id="form_agregar" action="../controllers/insertar.php" method="POST"
-                      onsubmit="confirmarGuardarProducto(event)">
+                <form action="../controllers/insertar.php" method="POST">
                     <div class="form_grid">
                         <div class="grupo">
                             <label for="nombre">Nombre</label>
@@ -172,6 +163,13 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
                                 </select>
                             </div>
                         </div>
+                        <div class="grupo full">
+                            <label for="imagen">URL de imagen <span style="font-weight:400;text-transform:none;color:#b1a099;">(opcional — pega un enlace de Unsplash u otra fuente)</span></label>
+                            <input type="url" id="imagen" name="imagen" placeholder="https://images.unsplash.com/...">
+                            <div id="preview_imagen" style="display:none; margin-top:10px;">
+                                <img id="img_preview" src="" alt="Vista previa" style="height:120px; border-radius:10px; object-fit:cover; border:2px solid #E0D6CC;">
+                            </div>
+                        </div>
                         <div class="grupo" style="justify-content:flex-end;">
                             <label>&nbsp;</label>
                             <button type="submit" class="btn_primario" style="height:44px;">💾 Guardar producto</button>
@@ -182,7 +180,6 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 
-    <!-- ========== PANEL PRODUCTOS ========== -->
     <div id="panel_productos" class="panel">
         <div class="card">
             <div class="card-titulo">
@@ -213,8 +210,7 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
                         </thead>
                         <tbody>
                         <?php foreach ($productos as $p): ?>
-                            <tr data-id="<?php echo $p['id']; ?>"
-                                data-nombre="<?php echo strtolower(htmlspecialchars($p['nombre'])); ?>"
+                            <tr data-nombre="<?php echo strtolower(htmlspecialchars($p['nombre'])); ?>"
                                 data-desc="<?php echo strtolower(htmlspecialchars($p['descripcion'])); ?>"
                                 data-cat="<?php echo $p['categoria_id']; ?>">
                                 <td>#<?php echo $p['id']; ?></td>
@@ -224,18 +220,10 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
                                 <td><?php echo htmlspecialchars($p['categoria_nombre']); ?></td>
                                 <td>
                                     <div class="td-acciones">
-                                        <button class="btn_accion btn-edit"
-                                            onclick="abrirEditar(
-                                                <?php echo $p['id']; ?>,
-                                                '<?php echo addslashes(htmlspecialchars($p['nombre'])); ?>',
-                                                '<?php echo addslashes(htmlspecialchars($p['descripcion'])); ?>',
-                                                <?php echo $p['precio']; ?>,
-                                                <?php echo $p['categoria_id']; ?>
-                                            )">✏️ Editar</button>
-                                        <button class="btn_accion btn-delete"
-                                            onclick="confirmarEliminar(<?php echo $p['id']; ?>, '<?php echo addslashes(htmlspecialchars($p['nombre'])); ?>')">
-                                            🗑️ Eliminar
-                                        </button>
+                                        <a href="editar.php?id=<?php echo $p['id']; ?>" class="btn_accion btn-edit">✏️ Editar</a>
+                                        <a href="../controllers/eliminar.php?id=<?php echo $p['id']; ?>"
+                                           class="btn_accion btn-delete"
+                                           onclick="return confirm('¿Eliminar este producto?')">🗑️ Eliminar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -250,51 +238,6 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 
-    <!-- ========== PANEL EDITAR (temporal) ========== -->
-    <div id="panel_editar" class="panel">
-        <div class="card">
-            <div class="card-titulo">
-                <h3>✏️ Editar producto</h3>
-            </div>
-            <div class="card-body open">
-                <form id="form_editar" action="../controllers/actualizar.php" method="POST"
-                      onsubmit="confirmarEditarProducto(event)">
-                    <input type="hidden" id="edit_id" name="id">
-                    <div class="form_grid">
-                        <div class="grupo">
-                            <label for="edit_nombre">Nombre</label>
-                            <input type="text" id="edit_nombre" name="nombre" placeholder="Nombre del producto" required>
-                        </div>
-                        <div class="grupo">
-                            <label for="edit_precio">Precio ($)</label>
-                            <input type="number" id="edit_precio" name="precio" step="0.01" placeholder="0.00" required>
-                        </div>
-                        <div class="grupo full">
-                            <label for="edit_descripcion">Descripción</label>
-                            <input type="text" id="edit_descripcion" name="descripcion" placeholder="Descripción..." required>
-                        </div>
-                        <div class="grupo">
-                            <label for="edit_categoria_id">Categoría</label>
-                            <div class="select-wrap">
-                                <select id="edit_categoria_id" name="categoria_id" required>
-                                    <option value="">Selecciona una categoría</option>
-                                    <?php foreach ($categorias as $cat): ?>
-                                        <option value="<?php echo $cat['id']; ?>"><?php echo htmlspecialchars($cat['nombre']); ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="grupo" style="justify-content:flex-end; gap:10px; flex-direction:row; align-items:flex-end;">
-                            <button type="button" class="btn_cancelar_edicion" onclick="cerrarEditar()">✕ Cancelar</button>
-                            <button type="submit" class="btn_primario" style="height:44px;">✏️ Guardar cambios</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========== PANEL PEDIDOS ========== -->
     <div id="panel_pedidos" class="panel">
         <div class="card">
             <div class="card-titulo">
@@ -342,8 +285,7 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
                                 </td>
                                 <td>
                                     <form action="../controllers/pedido/actualizar_estado.php" method="POST"
-                                          style="display:flex;gap:8px;align-items:center;"
-                                          onsubmit="confirmarCambioEstado(event, this)">
+                                          style="display:flex;gap:8px;align-items:center;">
                                         <input type="hidden" name="pedido_id" value="<?php echo $ped['id']; ?>">
                                         <div class="select-wrap">
                                             <select name="nuevo_estado" class="select-estado">
@@ -368,8 +310,69 @@ $pedidos = $pedidos_result->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 
-</div><!-- /container -->
+</div>
 
-<script src="../assets/js/dashboard.js"></script>
+<script>
+function cambiarTab(btn, tab) {
+    document.getElementById('bienvenida').style.display = 'none';
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab_btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel_' + tab).classList.add('active');
+    btn.classList.add('active');
+}
+
+function filtrarProductos() {
+    const texto  = document.getElementById('buscar_productos').value.toLowerCase();
+    const catId  = document.getElementById('filtro_cat').value;
+    const filas  = document.querySelectorAll('#tabla_productos tbody tr');
+    let visibles = 0;
+    filas.forEach(f => {
+        const ok = (f.dataset.nombre.includes(texto) || f.dataset.desc.includes(texto))
+                && (!catId || f.dataset.cat === catId);
+        f.style.display = ok ? '' : 'none';
+        if (ok) visibles++;
+    });
+    document.getElementById('count_productos').textContent = `(${visibles})`;
+    document.getElementById('msg_productos').textContent   = texto||catId ? `${visibles} resultado${visibles!==1?'s':''}` : '';
+    document.getElementById('empty_productos').style.display = visibles===0 ? 'block':'none';
+}
+
+function filtrarPedidos() {
+    const texto  = document.getElementById('buscar_pedidos').value.toLowerCase();
+    const estado = document.getElementById('filtro_estado').value;
+    const filas  = document.querySelectorAll('#tabla_pedidos tbody tr');
+    let visibles = 0;
+    filas.forEach(f => {
+        const ok = (f.dataset.cliente.includes(texto) || f.dataset.id.includes(texto))
+                && (!estado || f.dataset.estado === estado);
+        f.style.display = ok ? '' : 'none';
+        if (ok) visibles++;
+    });
+    document.getElementById('count_pedidos').textContent = `(${visibles})`;
+    document.getElementById('msg_pedidos').textContent   = texto||estado ? `${visibles} resultado${visibles!==1?'s':''}` : '';
+    document.getElementById('empty_pedidos').style.display = visibles===0 ? 'block':'none';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tp = document.querySelectorAll('#tabla_productos tbody tr').length;
+    const td = document.querySelectorAll('#tabla_pedidos tbody tr').length;
+    document.getElementById('count_productos').textContent = `(${tp})`;
+    document.getElementById('count_pedidos').textContent   = `(${td})`;
+});
+
+// Preview de imagen al pegar URL
+document.getElementById('imagen')?.addEventListener('input', function() {
+    const url = this.value.trim();
+    const preview = document.getElementById('preview_imagen');
+    const img = document.getElementById('img_preview');
+    if (url.startsWith('http')) {
+        img.src = url;
+        preview.style.display = 'block';
+        img.onerror = () => { preview.style.display = 'none'; };
+    } else {
+        preview.style.display = 'none';
+    }
+});
+</script>
 </body>
 </html>

@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Octava Café</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/diseno.css">
 </head>
 
@@ -109,39 +109,42 @@ session_start();
         </div>
 
 
-        <div class="botones_arriba">
-            <img src="../assets/img/Gemini_Generated_Image_gcpjwjgcpjwjgcpj-removebg-preview.png" alt="logo"
-                class="logotipo">
+        <header class="header_principal">
+            <div class="header_marca">
+                <img src="../assets/img/Gemini_Generated_Image_gcpjwjgcpjwjgcpj-removebg-preview.png" alt="logo" class="logotipo">
+                <span class="header_nombre">OCTAVA <span>CAFÉ</span></span>
+            </div>
 
-            <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank" class="enlace">Ubicacion</a>
-            <label for="about-toggle" class="enlace">Sobre Nosotros</label>
-            <a href="productos.php" class="enlace">Productos</a>
-            <a href="#informacion" class="enlace">Informacion</a>
+            <nav class="header_nav">
+                <a href="https://www.google.com/maps/place/Octava+caf%C3%A9/@20.7488147,-105.3885314,17z/data=!3m1!4b1!4m6!3m5!1s0x842141cc5eac6c8d:0x385c2032efa74cd4!8m2!3d20.7488098!4d-105.3836605!16s%2Fg%2F11p15l5w2g?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" class="nav_enlace">Ubicación</a>
+                <label for="about-toggle" class="nav_enlace">Sobre Nosotros</label>
+                <a href="productos.php" class="nav_enlace">Productos</a>
+                <a href="#informacion" class="nav_enlace">Información</a>
+            </nav>
 
-            <div class="usuario_btn">
+            <div class="header_usuario">
                 <?php if (isset($_SESSION['usuario'])): ?>
-                    <div class="dropdown">
-                        <button class="btn_usuario">
-                            Hola, <?php echo explode(" ", $_SESSION['usuario'])[0]; ?> ▼
+                    <div class="header_dropdown">
+                        <button class="btn_usuario_header">
+                            <span class="avatar_mini"><?php echo strtoupper(substr($_SESSION['usuario'], 0, 1)); ?></span>
+                            Hola, <?php echo explode(" ", $_SESSION['usuario'])[0]; ?> <span class="chevron">▾</span>
                         </button>
-                        <div class="dropdown_content">
+                        <div class="header_dropdown_menu">
                             <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
-                                <!-- Lo que ve el Admin -->
-                                <a href="dashboard.php" style="color: #8D6E63; font-weight: bold;"> Panel de Control</a>
+                                <a href="dashboard.php" class="menu_item_destacado">⚙ Panel de Control</a>
                             <?php else: ?>
-                                <a href="mis_pedidos.php">Mis Pedidos</a>
+                                <a href="mis_pedidos.php" class="menu_item">☕ Mis Pedidos</a>
                             <?php endif; ?>
-
-                            <a href="../views/cuenta.php">Mi Cuenta</a>
-                            <a href="../controllers/logout.php" class="btn_salir">Cerrar Sesión</a>
+                            <a href="cuenta.php" class="menu_item">👤 Mi Cuenta</a>
+                            <a href="../controllers/logout.php" class="menu_item menu_salir">Cerrar Sesión</a>
                         </div>
                     </div>
                 <?php else: ?>
-                    <a href="login.html" class="btn_login">Iniciar Sesión</a>
+                    <a href="login.html" class="btn_login_header">Iniciar Sesión</a>
                 <?php endif; ?>
             </div>
-        </div>
+        </header>
         <div class="imagenes_cafe">
 
             <div class="diseño">

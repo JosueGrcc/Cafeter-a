@@ -15,114 +15,197 @@ body {
 html {
     scroll-behavior: smooth;
 }
-.botones_arriba {
-    background-color: #3e2723;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    position: absolute;
+/* ===========================
+   HEADER PRINCIPAL (nuevo)
+=========================== */
+.header_principal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 120px;
-    padding: 0 50px;
+    height: 72px;
+    background: linear-gradient(135deg, #3E2723 0%, #6D4C41 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
     box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     z-index: 1000;
 }
 
-.usuario_btn {
-    margin-left: auto; 
-    min-width: 221px;
+.header_marca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-.btn_login, .btn_usuario {
-    background-color: #a1887f; /* Color dorado */
-    color: white;
+.logotipo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.header_nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #FDFBF7;
+    letter-spacing: 2px;
+}
+
+.header_nombre span {
+    color: #A1887F;
+}
+
+.header_nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav_enlace {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(253, 251, 247, 0.85);
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 16px;
+    border: none;
+    background: transparent;
+    transition: background 0.25s, color 0.25s;
+    letter-spacing: 0.5px;
 }
 
-.btn_login:hover, .btn_usuario:hover {
-    background-color: #6d4c41;
+.nav_enlace:hover {
+    background: rgba(255,255,255,0.12);
+    color: #FDFBF7;
+    text-decoration: none;
 }
 
-.dropdown {
+.header_usuario {
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown usuario */
+.header_dropdown {
     position: relative;
-    padding-bottom: 15px; /* Puente invisible */
+    padding-bottom: 12px;
 }
 
-.dropdown_content {
+.btn_usuario_header {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(255,255,255,0.1);
+    color: #FDFBF7;
+    border: none;
+    padding: 8px 18px 8px 10px;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+.btn_usuario_header:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.avatar_mini {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #C67D53;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chevron {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.header_dropdown_menu {
     display: none;
     position: absolute;
     right: 0;
-    top: 100%;
-    background-color: white;
-    min-width: 180px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    border-radius: 10px;
+    top: calc(100% - 8px);
+    background: #ffffff;
+    min-width: 190px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
     z-index: 1100;
 }
-.dropdown:hover .dropdown_content {
+
+.header_dropdown:hover .header_dropdown_menu {
     display: block;
 }
 
-.dropdown_content a {
-    color: #2d2d2d;
-    padding: 12px 16px;
+.menu_item, .menu_item_destacado {
+    display: block;
+    padding: 12px 18px;
     text-decoration: none;
-    display: block;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.87rem;
+    font-weight: 500;
+    color: #3E2723;
+    transition: background 0.2s;
 }
 
-.dropdown_content a:hover {
-    background-color: #f5f5f5;
+.menu_item:hover, .menu_item_destacado:hover {
+    background: #F1EAE3;
 }
 
-.dropdown_content a.btn_salir {
-    color: #d32f2f;
-    border-top: 1px solid #eee;
-}
-.logotipo {
-    width: 10%;               
-    height: auto;
-    margin-right: 200px;     
+.menu_item_destacado {
+    color: #8D6E63;
+    font-weight: 700;
 }
 
-.enlace {
-    width: 100%;
-    display: inline-block;
-    text-decoration: none ; 
-    border-bottom: none ;  
-    outline: none ;       
-    transition: 0.3s;
-    background-color: transparent; 
+.menu_salir {
+    color: #c62828 !important;
+    border-top: 1px solid #F1EAE3;
+}
+
+.btn_login_header {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    background: #C67D53;
     color: white;
-    font-weight: bolder;
-    font-size: 19px;
-    font-style: italic;
-    cursor: pointer;
+    text-decoration: none;
+    padding: 9px 22px;
+    border-radius: 25px;
+    transition: background 0.25s, transform 0.2s;
+    letter-spacing: 0.3px;
 }
 
-.enlace:hover {
-    color: #a1887f; 
-    text-decoration: none !important;
-    border-bottom: none ;
-    background-color: transparent; 
+.btn_login_header:hover {
+    background: #A05E39;
+    transform: translateY(-1px);
 }
+
+/* Ajuste del contenido principal para compensar el header fijo */
 .principal {
-    /* margin: 10%; */
-    /* padding: 20px; */
-    /* height: 1000px; */
-    /* width: 700px; */
-    padding: 40px 0;
-    margin: 100px auto;
+    padding-top: 90px;
+}
+
+.principal {
+    padding: 40px 0 40px;
+    margin: 80px auto 0;
     width: 90%;
     max-width: 1200px;
 }
